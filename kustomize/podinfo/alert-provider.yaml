@@ -1,0 +1,26 @@
+apiVersion: flagger.app/v1beta1
+kind: AlertProvider
+metadata:
+  name: on-call
+  namespace: test
+spec:
+  type: slack
+  channel: payment
+  username: flagger
+  # webhook address (ignored if secretRef is specified)
+  # or https://slack.com/api/chat.postMessage if you use token in the secret
+#  address: https://hooks.slack.com/services/YOUR/SLACK/WEBHOOK
+  # optional http/s proxy
+#  proxy: http://my-http-proxy.com
+  # secret containing the webhook address (optional)
+  secretRef:
+    name: slack-secret
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: slack-secret
+  namespace: test
+data:
+  address: https://hooks.slack.com/services/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
+  token: TiDWfITdcFbtCSk6ss0TrtFk
