@@ -21,6 +21,6 @@ kind: Secret
 metadata:
   name: slack-secret
   namespace: test
-data:
+stringData:
   address: https://hooks.slack.com/services/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
   token: TiDWfITdcFbtCSk6ss0TrtFk
